@@ -1,5 +1,15 @@
 # Getting Started
 
+### Mongo as Docker Container
+You can download the mongo image from docker hub
+
+Ubuntu
+    <p>sudo docker run mongo -p 27017:27017<p>
+
+Mongo UI
+    <p>Use Robo 3T - https://robomongo.org/download<p>       
+         
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
