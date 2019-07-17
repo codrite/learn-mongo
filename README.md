@@ -4,7 +4,7 @@
 You can download the mongo image from docker hub
 
 Ubuntu
-    <p>sudo docker run mongo -p 27017:27017<p>
+    <p>sudo docker run -p 30891:27017 mongo<p>
 
 Mongo UI
     <p>Use Robo 3T - https://robomongo.org/download<p>       

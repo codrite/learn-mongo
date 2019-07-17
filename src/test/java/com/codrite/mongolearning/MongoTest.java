@@ -16,23 +16,25 @@ import java.util.Map;
 @Slf4j
 public class MongoTest {
 
-    @Test
+    final int port = 30891;
+
+    @Test(timeout = 1000L)
     public void assert_that_mongo_connection_is_alive() {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = new MongoClient("localhost", port);
         Assert.assertNotNull(mongoClient.listDatabaseNames().first());
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void assert_that_database_with_name_chiya_exists() {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = new MongoClient("localhost", port);
         Assert.assertNotNull(mongoClient.listDatabaseNames().first());
         MongoDatabase mongoDatabase = mongoClient.getDatabase("chiya");
         Assert.assertEquals("chiya", mongoDatabase.getName());
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void assert_that_collection_name_template_is_found_in_database_chiya() {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = new MongoClient("localhost", port);
         Assert.assertNotNull(mongoClient.listDatabaseNames().first());
         MongoDatabase mongoDatabase = mongoClient.getDatabase("chiya");
         Assert.assertEquals("chiya", mongoDatabase.getName());
@@ -44,9 +46,9 @@ public class MongoTest {
         Assert.assertEquals("Template", templateCollection.getNamespace().getCollectionName());
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void assert_that_a_single_document_was_inserted_in_collection_name_template() {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = new MongoClient("localhost", port);
         Assert.assertNotNull(mongoClient.listDatabaseNames().first());
         MongoDatabase mongoDatabase = mongoClient.getDatabase("chiya");
         Assert.assertEquals("chiya", mongoDatabase.getName());
